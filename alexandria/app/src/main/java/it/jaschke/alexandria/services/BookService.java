@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -142,6 +143,11 @@ public class BookService extends IntentService {
                 }
             }
 
+        }
+
+        if(bookJsonString == null) {
+            Toast.makeText(getApplicationContext(), "Unable to retrieve book information.", Toast.LENGTH_SHORT).show();
+            return;
         }
 
         final String ITEMS = "items";
