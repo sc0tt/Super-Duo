@@ -63,6 +63,8 @@ public class PagerFragment extends Fragment
         @Override
         public CharSequence getPageTitle(int position)
         {
+            // Used https://discussions.udacity.com/t/layout-mirroring-rtl-what-is-expected/30120/18 as a reference for suopporting RTL
+            position = Utilies.inversePositionForRTL(position, getCount());
             return getDayName(getActivity(),System.currentTimeMillis()+((position-2)*86400000));
         }
         public String getDayName(Context context, long dateInMillis) {
